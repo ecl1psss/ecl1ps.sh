@@ -131,7 +131,8 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(p);
 
     const paddedName = skill.name.padEnd(18, " ");
-    const BAR_SIZE = 20; // Количество символов в визуальной шкале [###---]
+    const isMobile = window.innerWidth < 600;
+    const BAR_SIZE = isMobile ? 12 : 20; // Количество символов в визуальной шкале [###---]
 
     // Цикл идет от 0 до целевого процента (target)
     for (let percent = 0; percent <= skill.target; percent++) {
