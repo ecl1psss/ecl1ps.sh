@@ -1,0 +1,277 @@
+:root {
+  --bg-color: #080808; /* Чуть темнее для контраста */
+  --accent-color: #ff7a7a; /* Нежно-красный */
+  --accent-glow: rgba(255, 122, 122, 0.4); /* Цвет свечения */
+  --text-dim: #a0a0a0;
+  --border-color: #2a2a2a;
+  --font-main: "Courier New", Courier, monospace;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: #eee;
+  font-family: var(--font-main);
+  display: flex;
+  justify-content: center;
+  padding-top: 5vh;
+  margin: 0;
+  overflow-x: hidden; /* Защита от общего скролла */
+}
+
+/* --- Свечение --- */
+.glow-border {
+  border: 1px solid var(--border-color);
+  box-shadow:
+    0 0 10px var(--accent-glow),
+    0 0 5px rgba(255, 122, 122, 0.2);
+}
+
+.glow-text {
+  color: var(--accent-color);
+  text-shadow:
+    0 0 5px var(--accent-glow),
+    0 0 10px rgba(255, 122, 122, 0.2);
+}
+
+/* ---------------- */
+
+.terminal-window {
+  position: relative;
+  width: 95%;
+  max-width: 850px;
+  background: #000;
+  min-height: 500px;
+}
+
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #111;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.close-btn {
+  color: var(--accent-color);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.content {
+  padding: 25px;
+}
+
+.ascii-logo {
+  color: var(--accent-color);
+  font-size: 10px;
+  line-height: 1.1;
+  overflow: hidden;
+  user-select: none;
+  font-family: "Courier New", Courier, monospace;
+  white-space: pre;
+  text-shadow: 0 0 5px var(--accent-glow);
+  margin-bottom: 30px;
+}
+
+/* Настройки для очень маленьких экранов */
+@media (max-width: 600px) {
+  .ascii-logo {
+    font-size: 10px;
+  }
+}
+
+.prompt {
+  margin: 15px 0;
+  font-size: 15px;
+}
+
+.prompt span {
+  color: var(--accent-color);
+}
+
+.info-box {
+  display: flex;
+  gap: 20px;
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  margin: 10px 0 25px 0;
+  background: rgba(255, 122, 122, 0.01);
+}
+
+.avatar {
+  width: 85px;
+  height: 85px;
+  background: #151515;
+  flex-shrink: 0;
+  overflow: hidden; /* Чтобы картинка не выходила за края рамки */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Картинка заполнит квадрат без искажений */
+}
+
+.details h2 {
+  margin: 0 0 8px 0;
+  /* Убраны заглавные, добавлено свечение */
+  font-weight: bold;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}
+
+.details p {
+  margin: 4px 0;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+.social-list {
+  list-style: none;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.social-list li {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.social-list li::before {
+  content: "> ";
+  color: var(--accent-color);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+a:hover {
+  background: var(--accent-color);
+  color: #000;
+}
+
+#cursor {
+  font-weight: bold;
+}
+
+#hack-stack {
+    margin: 10px 0 20px 0;
+    font-family: 'Courier New', monospace; /* Критично для выравнивания */
+    font-size: 14px;
+}
+
+#hack-stack p {
+    margin: 2px 0;
+    white-space: pre; /* Сохраняет пробелы для выравнивания */
+    color: var(--accent-color, #00ff00);
+}
+
+.scale-tag {
+    color: #008800;
+    font-weight: bold;
+}
+
+.scale-tag {
+    color: #008800;
+    letter-spacing: 1px;
+}
+
+.terminal-footer {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    gap: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+}
+
+.crypto-footer-item {
+    cursor: pointer;
+    color: #555;
+    transition: color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Выравнивание по центру по горизонтали */
+    position: relative;  /* Для позиционирования подсказки */
+}
+
+.crypto-footer-item:hover {
+    color: var(--accent-color, #00ff00);
+}
+
+.net-label {
+    font-weight: bold;
+    z-index: 2;
+}
+
+.copy-hint {
+    font-size: 9px;
+    opacity: 0;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    position: absolute;
+    bottom: -12px; /* Появляется ровно под надписью [TON] */
+    white-space: nowrap;
+    color: var(--accent-color, #00ff00);
+    letter-spacing: 1px;
+}
+
+.crypto-footer-item:hover .copy-hint {
+    opacity: 1;
+    /* bottom: -15px; Небольшое движение при появлении для динамики */
+}
+
+/* Настройка уведомления, чтобы оно тоже было по центру относительно группы */
+#footer-notify {
+    position: absolute;
+    bottom: 25px; /* Опустили ближе к кнопкам (было 45px) */
+    right: 0;
+    background: var(--accent-color, #00ff00);
+    color: #000;
+    padding: 2px 6px;
+    font-size: 9px; /* Чуть уменьшили шрифт для аккуратности */
+    font-weight: bold;
+    display: none;
+    pointer-events: none; /* Чтобы не мешало кликать, если не успело исчезнуть */
+    animation: fadeUp 1s forwards;
+    white-space: nowrap;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3); /* Легкое свечение */
+}
+
+@keyframes fadeUp {
+    0% { 
+        opacity: 0; 
+        transform: translateY(10px); /* Вылетает чуть снизу */
+    }
+    20% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+    80% { 
+        opacity: 1; 
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateY(-5px); /* Плавно уходит вверх */
+    }
+}
+
+#uptime-display {
+    color: #555; /* Тёмно-серый */
+    font-weight: normal;
+    transition: color 0.3s;
+}
+
+/* При наведении на шапку терминала аптайм может "подсвечиваться" */
+.terminal-header:hover #uptime-display {
+    color: var(--accent-color, #00ff00);
+}

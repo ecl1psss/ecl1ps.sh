@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ecl1ps | Terminal</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="terminal-window glow-border">
+      <div class="terminal-header">
+        <div id="clock">
+    <span id="time-display">--:--:--</span> (Europe/Minsk) | 
+    <span id="uptime-display">UPTIME: 0s</span> | 
+    ecl1ps.sh
+</div>
+        <div class="close-btn">[X]</div>
+      </div>
+
+      <div class="content">
+        <pre class="ascii-logo">
+                                            
+                        88      88                          
+                        88    ,d88                          
+                        88  888888                          
+ ,adPPYba,   ,adPPYba,  88      88  8b,dPPYba,   ,adPPYba,  
+a8P_____88  a8"     ""  88      88  88P'    "8a  I8[    ""  
+8PP"""""""  8b          88      88  88       d8   `"Y8ba,   
+"8b,   ,aa  "8a,   ,aa  88      88  88b,   ,a8"  aa    ]8I  
+ `"Ybbd8"'   `"Ybbd8"'  88      88  88`YbbdP"'   `"YbbdP"'  
+                                    88                      
+                                    88                                               
+        </pre>
+
+        <div class="prompt">
+          root@ecl1ps.sh:~$ <span>glow about_me.md</span>
+        </div>
+
+        <div class="info-box">
+          <div class="avatar glow-border">
+            <img
+              src="src/imgs/avatar.jpg"
+              alt="ecl1ps avatar"
+              class="avatar-img"
+            />
+          </div>
+          <div class="details">
+            <h2 class="name">Alexander</h2>
+            <p>
+              <span style="color: var(--accent-color)">[</span> Node.js
+              Fullstack Developer
+              <span style="color: var(--accent-color)">]</span>
+            </p>
+            <p>Focus: Bots, Scrapers & Web Tools</p>
+            <p>Location: Brest, Belarus</p>
+          </div>
+        </div>
+
+        <div class="prompt">root@ecl1ps.sh:~$ <span>./socials.sh</span></div>
+
+        <ul class="social-list">
+          <li>
+            <a href="https://github.com/ecl1psss" target="_blank"
+              >github.com/ecl1psss</a
+            >
+          </li>
+          <li>
+            <a href="https://t.me/eecl1pss" target="_blank">t.me/ecl1ps</a>
+          </li>
+          <li>
+            <a href="https://lolz.live/members/6921881/" target="_blank"
+              >lolz.live/me</a
+            >
+          </li>
+          <li>
+            <a href="https://steamcommunity.com/id/ecl1psmank/" target="_blank"
+              >steampowered.com/id/ecl1ps</a
+            >
+          </li>
+          <li style="color: #555; font-size: 13px">runtime: node_v24.14.0</li>
+        </ul>
+
+        <div class="prompt">root@ecl1ps.sh:~$ <span>./skills.sh</span></div>
+<div class="terminal-content" id="hack-stack">
+    </div>
+
+        <div class="prompt">root@ecl1ps.sh:~$ <span id="cursor">_</span></div>
+      </div>
+
+      <div class="terminal-footer">
+    <div class="crypto-footer-item" onclick="copyFooterAddr('UQDR0OYe1WLhbggcHvMjBsB4IszPEmiIbQXUFYKr7dI6pbQy', this)">
+        <span class="net-label">[TON]</span>
+        <span class="copy-hint">copy</span>
+    </div>
+    <div class="crypto-footer-item" onclick="copyFooterAddr('TTVJ5s5rYDvXRbRp5uLLDWrTUyFT7oBG2A', this)">
+        <span class="net-label">[TRC20]</span>
+        <span class="copy-hint">copy</span>
+    </div>
+    <div id="footer-notify">COPIED_TO_CLIPBOARD</div>
+</div>
+
+    </div>
+
+</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
