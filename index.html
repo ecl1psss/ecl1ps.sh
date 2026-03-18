@@ -10,11 +10,11 @@
     <div class="terminal-window glow-border">
       <div class="terminal-header">
         <div id="clock">
-    <span id="time-display">--:--:--</span> (Europe/Minsk) | 
-    <span id="uptime-display">UPTIME: 0s</span> | 
-    ecl1ps.sh
-</div>
-        <div class="close-btn">[X]</div>
+          <span id="time-display">--:--:--</span> (Europe/Minsk) | 
+          <span id="uptime-display">UPTIME: 0s</span> | 
+          ecl1ps.sh
+        </div>
+        <div class="close-btn" id="close-terminal-btn">[X]</div>
       </div>
 
       <div class="content">
@@ -47,12 +47,20 @@ a8P_____88  a8"     ""  88      88  88P'    "8a  I8[    ""
           <div class="details">
             <h2 class="name">Alexander</h2>
             <p>
-              <span style="color: var(--accent-color)">[</span> Node.js
-              Fullstack Developer
-              <span style="color: var(--accent-color)">]</span>
+              <span style="color: var(--accent-color)">[</span> Node.js Fullstack Developer <span style="color: var(--accent-color)">]</span>
             </p>
             <p>Focus: Bots, Scrapers & Web Tools</p>
             <p>Location: Brest, Belarus</p>
+          </div>
+          
+          <div class="portfolio-links">
+            <h3>[ PORTFOLIO ]</h3>
+            <div class="portfolio-grid">
+              <a href="portfolio/web.html" class="term-btn">WEB</a>
+              <a href="bots.html" class="term-btn">Bots</a>
+              <a href="scripts.html" class="term-btn">Scripts</a>
+              <a href="packages.html" class="term-btn">NPM</a>
+            </div>
           </div>
         </div>
 
@@ -60,48 +68,45 @@ a8P_____88  a8"     ""  88      88  88P'    "8a  I8[    ""
 
         <ul class="social-list">
           <li>
-            <a href="https://github.com/ecl1psss" target="_blank"
-              >github.com/ecl1psss</a
-            >
+            <a href="https://github.com/ecl1psss" target="_blank">github.com/ecl1psss</a>
           </li>
           <li>
             <a href="https://t.me/eecl1pss" target="_blank">t.me/ecl1ps</a>
           </li>
           <li>
-            <a href="https://lolz.live/members/6921881/" target="_blank"
-              >lolz.live/me</a
-            >
+            <a href="https://lolz.live/members/6921881/" target="_blank">lolz.live/me</a>
           </li>
           <li>
-            <a href="https://steamcommunity.com/id/ecl1psmank/" target="_blank"
-              >steampowered.com/id/ecl1ps</a
-            >
+            <a href="https://steamcommunity.com/id/ecl1psmank/" target="_blank">steampowered.com/id/ecl1ps</a>
           </li>
           <li style="color: #555; font-size: 13px">runtime: node_v24.14.1</li>
         </ul>
 
         <div class="prompt">root@ecl1ps.sh:~$ <span>./skills.sh</span></div>
-<div class="terminal-content" id="hack-stack">
-    </div>
+        <div class="terminal-content" id="hack-stack"></div>
 
         <div class="prompt">root@ecl1ps.sh:~$ <span id="cursor">_</span></div>
       </div>
 
       <div class="terminal-footer">
-    <div class="crypto-footer-item" onclick="copyFooterAddr('UQDR0OYe1WLhbggcHvMjBsB4IszPEmiIbQXUFYKr7dI6pbQy', this)">
-        <span class="net-label">[TON]</span>
-        <span class="copy-hint">copy</span>
+        <div class="crypto-footer-item" onclick="copyFooterAddr('UQDR0OYe1WLhbggcHvMjBsB4IszPEmiIbQXUFYKr7dI6pbQy', this)">
+            <span class="net-label">[TON]</span>
+            <span class="copy-hint">copy</span>
+        </div>
+        <div class="crypto-footer-item" onclick="copyFooterAddr('TTVJ5s5rYDvXRbRp5uLLDWrTUyFT7oBG2A', this)">
+            <span class="net-label">[TRC20]</span>
+            <span class="copy-hint">copy</span>
+        </div>
+        <div id="footer-notify">COPIED_TO_CLIPBOARD</div>
+      </div>
     </div>
-    <div class="crypto-footer-item" onclick="copyFooterAddr('TTVJ5s5rYDvXRbRp5uLLDWrTUyFT7oBG2A', this)">
-        <span class="net-label">[TRC20]</span>
-        <span class="copy-hint">copy</span>
-    </div>
-    <div id="footer-notify">COPIED_TO_CLIPBOARD</div>
-</div>
 
+    <div id="close-modal" class="modal-overlay">
+      <div class="modal-window glow-border">
+        <p>> where are you going :/</p>
+        <button id="sorry-btn" class="term-btn">sorry</button>
+      </div>
     </div>
-
-</div>
 
     <script src="script.js"></script>
   </body>

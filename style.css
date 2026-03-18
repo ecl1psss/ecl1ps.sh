@@ -1,14 +1,14 @@
 :root {
-  --bg-color: #080808; /* Чуть темнее для контраста */
-  --accent-color: #ff7a7a; /* Нежно-красный */
-  --accent-glow: rgba(255, 122, 122, 0.4); /* Цвет свечения */
+  --bg-color: #080808;
+  --accent-color: #ff7a7a;
+  --accent-glow: rgba(255, 122, 122, 0.4);
   --text-dim: #a0a0a0;
   --border-color: #2a2a2a;
   --font-main: "Courier New", Courier, monospace;
 }
 
 * {
-  box-sizing: border-box; /* Чтобы padding не раздувал ширину 100% */
+  box-sizing: border-box;
 }
 
 html,
@@ -16,7 +16,8 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden; /* Запрещаем горизонтальный скролл */
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -25,9 +26,11 @@ body {
   font-family: var(--font-main);
   display: flex;
   justify-content: center;
-  padding-top: 5vh;
+  padding-top: 3vh;
   margin: 0;
-  overflow-x: hidden; /* Защита от общего скролла */
+  overflow-x: hidden;
+  padding-bottom: 80px;
+  align-items: center;
 }
 
 /* --- Свечение --- */
@@ -51,8 +54,10 @@ body {
   position: relative;
   width: 95%;
   max-width: 850px;
+  max-height: 90vh;
+  overflow: hidden;
+  overflow-x: hidden;
   background: #000;
-  min-height: 500px;
   display: flex;
   flex-direction: column;
 }
@@ -65,17 +70,43 @@ body {
   border-bottom: 1px solid var(--border-color);
   font-size: 13px;
   color: var(--text-dim);
+  align-items: center;
+  gap: 10px;
+}
+
+#clock {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; /* Если текст совсем не влезет, он аккуратно сократится */
+  flex-shrink: 1; /* Позволяем часам сжиматься */
 }
 
 .close-btn {
   color: var(--accent-color);
   font-weight: bold;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .content {
-  padding: 25px;
+  padding: 25px 1cap 0px;
   flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) #000;
+  /* flex: 1; - Убрано, чтобы кошельки подтянулись выше */
+}
+
+.content::-webkit-scrollbar {
+  width: 4px;
+}
+.content::-webkit-scrollbar-track {
+  background: #000;
+}
+.content::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
 }
 
 .ascii-logo {
@@ -88,27 +119,29 @@ body {
   white-space: pre;
   text-shadow: 0 0 5px var(--accent-glow);
   margin-bottom: 30px;
+  display: block;
+  max-width: 100%;
 }
 
-/* Настройки для очень маленьких экранов */
-/* --- Адаптация для мобильных устройств (до 600px) --- */
+/* Настройки для мобильных устройств */
 @media (max-width: 600px) {
   body {
-    padding-top: 0; /* Убираем лишний отступ сверху */
-    padding-left: 0;
-    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: flex-start;
   }
 
   .terminal-window {
     width: 100vw;
-    min-height: 100vh; /* На мобилке лучше на весь экран */
+    height: 100dvh;
+    max-height: 100dvh;
+    border: none;
   }
 
   .content {
-    padding: 10px; /* Уменьшаем внутренние отступы */
+    padding: 10px;
   }
 
-  /* Шапка: убираем лишнее, чтобы не накладывалось */
   .terminal-header {
     font-size: 11px;
     white-space: nowrap;
@@ -121,14 +154,13 @@ body {
     gap: 5px;
   }
 
-  /* ASCII логотип: уменьшаем шрифт, чтобы не разваливался */
   .ascii-logo {
     font-size: 6px;
     line-height: 1;
+    letter-spacing: -0.5px;
     margin-bottom: 20px;
   }
 
-  /* Инфо-бокс: аватар сверху, текст снизу */
   .info-box {
     flex-direction: column;
     align-items: center;
@@ -136,56 +168,69 @@ body {
     gap: 15px;
   }
 
+  .portfolio-links {
+    margin-left: 0 !important;
+    align-items: center !important;
+    margin-top: 10px;
+  }
+
   .avatar {
-    width: 120px; /* Делаем аватар чуть крупнее на мобилках */
+    width: 120px;
     height: 120px;
   }
 
-  /* Скиллы: САМОЕ ВАЖНОЕ */
   #hack-stack {
-    font-size: 11px; /* Уменьшаем шрифт, чтобы шкала влезла */
+    font-size: 11px;
   }
 
   #hack-stack p {
-    white-space: pre-wrap; /* Позволяет тексту переноситься, если совсем тесно */
+    white-space: pre-wrap;
     word-break: break-all;
     letter-spacing: -0.5px;
   }
 
-  /* Соцсети: чуть компактнее */
   .social-list li {
     font-size: 13px;
-    word-break: break-all; /* Чтобы длинные ссылки не вылезали */
+    word-break: break-all;
   }
 
-  /* Футер с кошельками: прижимаем к краям */
   .terminal-footer {
-    justify-content: center; /* Центрируем кошельки на мобилке */
+    justify-content: center;
     padding-bottom: 25px;
-    margin-top: 20px; /* Расстояние от последнего промпта */
+    margin-top: 20px;
   }
 
   #footer-notify {
-    /* Чтобы уведомление всплывало ровно над кнопками по центру */
     right: 50%;
     transform: translateX(50%);
   }
 }
 
-/* Фикс для очень узких экранов (до 400px) */
 @media (max-width: 400px) {
   .ascii-logo {
     font-size: 4px;
   }
-
   #hack-stack {
     font-size: 10px;
   }
-
   .terminal-header {
     font-size: 9px;
   }
+  .scale-tag {
+    letter-spacing: 0px; /* Убираем лишние отступы между символами */
+  }
 }
+
+@media (max-width: 320px) {
+  #hack-stack {
+    font-size: 10px; /* Миниатюрный шрифт для 320px */
+  }
+
+  .content {
+    padding: 10px 8px; /* Максимально экономим место по бокам */
+  }
+}
+
 .prompt {
   margin: 15px 0;
   font-size: 15px;
@@ -202,6 +247,7 @@ body {
   padding: 20px;
   margin: 10px 0 25px 0;
   background: rgba(255, 122, 122, 0.01);
+  align-items: center; /* Выравнивание блоков внутри */
 }
 
 .avatar {
@@ -209,7 +255,7 @@ body {
   height: 85px;
   background: #151515;
   flex-shrink: 0;
-  overflow: hidden; /* Чтобы картинка не выходила за края рамки */
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -218,12 +264,11 @@ body {
 .avatar-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Картинка заполнит квадрат без искажений */
+  object-fit: cover;
 }
 
 .details h2 {
   margin: 0 0 8px 0;
-  /* Убраны заглавные, добавлено свечение */
   font-weight: bold;
   font-size: 1.3rem;
   letter-spacing: 0.5px;
@@ -233,6 +278,47 @@ body {
   margin: 4px 0;
   color: var(--text-dim);
   font-size: 14px;
+}
+
+/* PORTFOLIO LINKS */
+.portfolio-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto; /* Прижимаем к правому краю на десктопе */
+}
+
+.portfolio-links h3 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.term-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-dim);
+  padding: 5px 15px;
+  font-family: var(--font-main);
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.2s;
+  text-transform: uppercase;
+}
+
+.term-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  box-shadow: 0 0 5px var(--accent-glow);
 }
 
 .social-list {
@@ -268,36 +354,33 @@ a:hover {
 
 #hack-stack {
   margin: 10px 0 20px 0;
-  font-family: "Courier New", monospace; /* Критично для выравнивания */
+  font-family: "Courier New", monospace;
   font-size: 14px;
 }
 
 #hack-stack p {
-  margin: 2px 0;
-  white-space: pre; /* Сохраняет пробелы для выравнивания */
+  margin: 4px 0;
+  white-space: pre-wrap;
+  word-break: break-all;
   color: var(--accent-color, #00ff00);
 }
 
 .scale-tag {
   color: #008800;
   font-weight: bold;
-}
-
-.scale-tag {
-  color: #008800;
   letter-spacing: 1px;
 }
 
 .terminal-footer {
-  position: relative; /* Вместо absolute */
-  bottom: 0;
-  right: 0;
-  padding: 15px 25px; /* Отступы от краев */
+  margin-top: 10px;
+  padding: 15px 25px;
   display: flex;
-  justify-content: flex-end; /* На ПК оставим справа */
-  gap: 15px;
+  justify-content: flex-end;
+  gap: 20px;
   font-family: "Courier New", monospace;
   font-size: 12px;
+  /* margin-top: auto; */
+  border-top: 1px solid rgba(42, 42, 42, 0.3);
 }
 
 .crypto-footer-item {
@@ -306,8 +389,8 @@ a:hover {
   transition: color 0.2s;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Выравнивание по центру по горизонтали */
-  position: relative; /* Для позиционирования подсказки */
+  align-items: center;
+  position: relative;
 }
 
 .crypto-footer-item:hover {
@@ -325,7 +408,7 @@ a:hover {
   text-transform: uppercase;
   transition: all 0.2s ease;
   position: absolute;
-  bottom: -12px; /* Появляется ровно под надписью [TON] */
+  bottom: -12px;
   white-space: nowrap;
   color: var(--accent-color, #00ff00);
   letter-spacing: 1px;
@@ -333,30 +416,28 @@ a:hover {
 
 .crypto-footer-item:hover .copy-hint {
   opacity: 1;
-  /* bottom: -15px; Небольшое движение при появлении для динамики */
 }
 
-/* Настройка уведомления, чтобы оно тоже было по центру относительно группы */
 #footer-notify {
   position: absolute;
-  bottom: 25px; /* Опустили ближе к кнопкам (было 45px) */
+  bottom: 25px;
   right: 0;
   background: var(--accent-color, #00ff00);
   color: #000;
   padding: 2px 6px;
-  font-size: 9px; /* Чуть уменьшили шрифт для аккуратности */
+  font-size: 9px;
   font-weight: bold;
   display: none;
-  pointer-events: none; /* Чтобы не мешало кликать, если не успело исчезнуть */
+  pointer-events: none;
   animation: fadeUp 1s forwards;
   white-space: nowrap;
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3); /* Легкое свечение */
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
 }
 
 @keyframes fadeUp {
   0% {
     opacity: 0;
-    transform: translateY(10px); /* Вылетает чуть снизу */
+    transform: translateY(10px);
   }
   20% {
     opacity: 1;
@@ -367,17 +448,55 @@ a:hover {
   }
   100% {
     opacity: 0;
-    transform: translateY(-5px); /* Плавно уходит вверх */
+    transform: translateY(-5px);
   }
 }
 
 #uptime-display {
-  color: #555; /* Тёмно-серый */
+  color: #555;
   font-weight: normal;
   transition: color 0.3s;
 }
 
-/* При наведении на шапку терминала аптайм может "подсвечиваться" */
 .terminal-header:hover #uptime-display {
   color: var(--accent-color, #00ff00);
+}
+
+/* MODAL WINDOW */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-window {
+  background: #080808;
+  padding: 30px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.modal-window p {
+  color: var(--accent-color);
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
 }

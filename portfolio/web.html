@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ecl1ps | WEB Portfolio</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="terminal-window glow-border">
+      <div class="terminal-header">
+        <div id="clock">
+          <span id="time-display">--:--:--</span> (Europe/Minsk) | 
+          <span id="uptime-display">UPTIME: 0s</span> | 
+          web_portfolio.sh
+        </div>
+        <div class="close-btn" onclick="window.location.href='../index.html'">[BACK]</div>
+      </div>
+
+      <div class="content">
+        <div class="prompt">
+          root@ecl1ps.sh:~$ <span>cd /portfolio/web</span>
+        </div>
+        <div class="prompt">
+          root@ecl1ps.sh:/portfolio/web$ <span>ls -la</span>
+        </div>
+
+        <ul class="social-list" style="margin-top: 20px;">
+          <li style="color: #555;">drwxr-xr-x 2 root root 4096 Mar 18 10:33 .</li>
+          <li style="color: #555;">drwxr-xr-x 5 root root 4096 Mar 18 10:33 ..</li>
+          <br>
+          <li style="color: var(--text-dim);">[ SYSTEM MESSAGE ]: Directory is empty. No web projects deployed yet.</li>
+          <li style="color: var(--text-dim);">[ SUGGESTION ]: Check back later or return to <a href="../index.html">main menu</a>.</li>
+        </ul>
+
+        <div class="prompt">root@ecl1ps.sh:/portfolio/web$ <span id="cursor">_</span></div>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
