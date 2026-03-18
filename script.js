@@ -130,7 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const p = document.createElement("p");
     container.appendChild(p);
 
-    const paddedName = skill.name.padEnd(18, " ");
+    const paddingValue = window.innerWidth < 600 ? 10 : 18;
+    const paddedName = skill.name.padEnd(paddingValue, ' ');
+
     const isMobile = window.innerWidth < 600;
     const BAR_SIZE = isMobile ? 12 : 20; // Количество символов в визуальной шкале [###---]
 

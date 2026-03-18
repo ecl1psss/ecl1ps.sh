@@ -7,6 +7,18 @@
   --font-main: "Courier New", Courier, monospace;
 }
 
+* {
+  box-sizing: border-box; /* Чтобы padding не раздувал ширину 100% */
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Запрещаем горизонтальный скролл */
+}
+
 body {
   background-color: var(--bg-color);
   color: #eee;
@@ -80,16 +92,21 @@ body {
 @media (max-width: 600px) {
   body {
     padding-top: 0; /* Убираем лишний отступ сверху */
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .terminal-window {
-    width: 100%;
-    border: none;
-    box-shadow: none;
+    width: 100vw; /* Растягиваем ровно на ширину вьюпорта */
+    max-width: 100vw;
+    margin: 0;
+    border-left: none;
+    border-right: none;
+    border-radius: 0; /* Убираем скругления, если были, для эффекта "на весь экран" */
   }
 
   .content {
-    padding: 15px; /* Уменьшаем внутренние отступы */
+    padding: 10px; /* Уменьшаем внутренние отступы */
   }
 
   /* Шапка: убираем лишнее, чтобы не накладывалось */
@@ -133,6 +150,7 @@ body {
   #hack-stack p {
     white-space: pre-wrap; /* Позволяет тексту переноситься, если совсем тесно */
     word-break: break-all;
+    letter-spacing: -0.5px;
   }
 
   /* Соцсети: чуть компактнее */
@@ -160,6 +178,10 @@ body {
 
   #hack-stack {
     font-size: 10px;
+  }
+
+  .terminal-header {
+    font-size: 9px;
   }
 }
 .prompt {
