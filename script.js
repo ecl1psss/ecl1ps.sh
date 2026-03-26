@@ -68,11 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
   isPrintingStarted = true;
 
   const skills = [
-    { name: "NODE.JS", target: 92 },
+    { name: "NODE.JS", target: 97 },
     { name: "MONGO_DB", target: 89 },
     { name: "TELEGRAM_API", target: 88 },
     { name: "EXPRESS", target: 56 },
-    { name: "TYPESCRIPT", target: 37 },
+    { name: "TYPESCRIPT", target: 49 },
   ];
 
   const container = document.getElementById("hack-stack");
@@ -113,12 +113,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const width = window.innerWidth;
     let BAR_SIZE = 20; // Десктоп
     let paddingValue = 18;
-    
+
     if (width < 600) {
       BAR_SIZE = 12; // Обычные мобилки
       paddingValue = 10;
     }
-    
+
     if (width <= 320) {
       BAR_SIZE = 8; // Экстремально узкие экраны (iPhone SE и т.д.)
       paddingValue = 8;

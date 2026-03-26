@@ -10,11 +10,12 @@
     <div class="terminal-window glow-border">
       <div class="terminal-header">
         <div id="clock">
-          <span id="time-display">--:--:--</span> (Europe/Minsk) | 
-          <span id="uptime-display">UPTIME: 0s</span> | 
-          web_portfolio.sh
+          <span id="time-display">--:--:--</span> (Europe/Minsk) |
+          <span id="uptime-display">UPTIME: 0s</span> | web_portfolio.sh
         </div>
-        <div class="close-btn" onclick="window.location.href='../index.html'">[BACK]</div>
+        <div class="close-btn" onclick="window.location.href = '../index.html'">
+          [BACK]
+        </div>
       </div>
 
       <div class="content">
@@ -25,15 +26,64 @@
           root@ecl1ps.sh:/portfolio/web$ <span>ls -la</span>
         </div>
 
-        <ul class="social-list" style="margin-top: 20px;">
-          <li style="color: #555;">drwxr-xr-x 2 root root 4096 Mar 18 10:33 .</li>
-          <li style="color: #555;">drwxr-xr-x 5 root root 4096 Mar 18 10:33 ..</li>
-          <br>
-          <li style="color: var(--text-dim);">[ SYSTEM MESSAGE ]: Directory is empty. No web projects deployed yet.</li>
-          <li style="color: var(--text-dim);">[ SUGGESTION ]: Check back later or return to <a href="../index.html">main menu</a>.</li>
+        <ul class="social-list" style="margin-top: 20px">
+          <li style="color: #555">
+            drwxr-xr-x 2 root root 4096 Mar 18 10:33 .
+          </li>
+          <br />
+
+          <li>
+            <span style="color: #555"
+              >-rw-r--r-- 1 root root 2048 Mar 26 18:00</span
+            >
+            <a
+              href="https://ecl1psss.github.io/adminHelper/#online"
+              target="_blank"
+              class="project-link"
+              >admin-helper.sh</a
+            >
+          </li>
+
+          <li>
+            <span style="color: #555"
+              >-rw-r--r-- 1 root root 4096 Mar 25 12:45</span
+            >
+            <a
+              href="https://ecl1psss.github.io/well-drilling/"
+              target="_blank"
+              class="project-link"
+              >well-drilling.html</a
+            >
+          </li>
+
+          <li>
+            <span style="color: #555"
+              >-rw-r--r-- 1 root root 1024 Mar 20 09:15</span
+            >
+            <a
+              href="https://ecl1psss.github.io/love-journey/"
+              target="_blank"
+              class="project-link"
+              >love-journey.me</a
+            >
+          </li>
+
+          <li>
+            <span style="color: #555"
+              >-rw-r--r-- 1 root root 1024 Mar 20 09:15</span
+            >
+            <a
+              href="https://ecl1psss.github.io/building-company/"
+              target="_blank"
+              class="project-link"
+              >building-company.html</a
+            >
+          </li>
         </ul>
 
-        <div class="prompt">root@ecl1ps.sh:/portfolio/web$ <span id="cursor">_</span></div>
+        <div class="prompt">
+          root@ecl1ps.sh:/portfolio/web$ <span id="cursor">_</span>
+        </div>
       </div>
     </div>
 
